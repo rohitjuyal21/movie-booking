@@ -1,0 +1,10 @@
+:root {
+  --primary-bg: #25252d;
+  --secondary-bg: #1b1a20;
+  --grey:#36394a;
+  --purple: #6531ff;
+}
+
+a {
+  text-decoration: none;
+}

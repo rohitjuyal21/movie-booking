@@ -1,0 +1,48 @@
+.feed {
+    padding: 56px 90px;
+    background: var(--primary-bg);
+}
+
+.feed__movies {
+    display: grid;
+    gap: 24px;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .feed__movies {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .feed {
+        padding: 40px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .feed {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .feed {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .feed__movies {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .feed__movies {
+        grid-template-columns: auto;
+    }
+}
