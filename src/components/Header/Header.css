@@ -1,10 +1,13 @@
 .header {
-    background-color: var(--secondary-bg);
     padding: 28px 90px;
     display: flex;
     gap: 16px;
     justify-content: space-between;
     align-items: center;
+}
+
+.header.bg {
+    background-color: var(--secondary-bg);
 }
 
 .header__title {

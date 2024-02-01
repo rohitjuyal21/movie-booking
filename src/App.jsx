@@ -10,12 +10,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path='/' element={<Feed />} />
-          <Route path='/tickets' element={<MyTickets />} />
-
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Feed />} />
+          <Route path='bookings' element={<MyTickets />} />
+          <Route path=':id' element={<Summary />} />
         </Route>
-        <Route path='/:id' element={<Summary />} />
       </Routes>
     </BrowserRouter>
   )

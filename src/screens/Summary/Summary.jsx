@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { fetchSingleData } from '../../utils/fetchFromAPI';
+import { useParams } from 'react-router-dom'
 import './Summary.css'
-import TicketBooking from '../../components/TicketBooking/TicketBooking';
-import { TailSpin } from 'react-loader-spinner'
+import { TicketBooking } from '../../components';
+import { fetchSingleData } from '../../utils/fetchFromAPI';
 
 const Summary = () => {
     const id = useParams();

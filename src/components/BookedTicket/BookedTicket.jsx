@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import './BookedTicket.css'
-import { fetchSingleData } from '../../utils/fetchFromAPI'
 import { Link } from 'react-router-dom'
+import { fetchSingleData } from '../../utils/fetchFromAPI'
 
 const BookedTicket = ({ id, cinema, date, time, seats }) => {
-    console.log(id)
     const [movie, setMovieData] = useState([])
     useEffect(() => {
         fetchSingleData(id)
             .then((data) => setMovieData(data))
     }, [])
     return (
-        <Link>
+        <Link to={`/${id}`}>
             <div className='bookedTickets'>
                 <div className='bookedTickets__imgContainer'>
                     <img src={movie?.image?.original} alt="" />

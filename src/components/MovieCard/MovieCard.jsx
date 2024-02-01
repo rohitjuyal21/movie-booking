@@ -3,9 +3,7 @@ import './MovieCard.css'
 import { FaStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-
 const MovieCard = ({ id, img, title, rating, genres }) => {
-    console.log(id)
     return (
         <Link to={`/${id}`}>
             <div className='movieCard'>

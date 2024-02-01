@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Feed.css'
-import { fetchAll } from '../../utils/fetchFromAPI'
-import MovieCard from '../../components/MovieCard/MovieCard';
+import { MovieCard } from '../../components';
+import { fetchAll } from '../../utils/fetchFromAPI';
 const Feed = () => {
     const [movies, setMovies] = useState([]);
     console.log(movies)

@@ -7,7 +7,7 @@ const TicketBooking = ({ movieData, showTicket, setShowTicket }) => {
     const id = useParams();
     const navigate = useNavigate();
     const [data, setData] = useState({
-        id:id.id,
+        id: id.id,
         cinema: '',
         date: '',
         time: '',
@@ -16,14 +16,17 @@ const TicketBooking = ({ movieData, showTicket, setShowTicket }) => {
         number: '',
     })
 
-    const [formData, setFormData] = useState([]);
+    const [formData, setFormData] = useState(JSON.parse(localStorage.getItem("TicketData")) || []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormData((prev) => [...prev, data])
-        console.log(data);
-        setData({ ...data, id: id.id, cinema: '', date: '', time: '', seats: '', email: '', number: ''})
+        setShowTicket(false)
 
+        setData({ ...data, id: id.id, cinema: '', date: '', time: '', seats: '', email: '', number: '' })
+        setTimeout(() => {
+            navigate('/bookings')
+        }, 200);
     }
 
     useEffect(() => {
@@ -31,8 +34,8 @@ const TicketBooking = ({ movieData, showTicket, setShowTicket }) => {
     }, [formData])
 
 
-    
-    
+
+
     return (
         <div className={`ticketBooking ${showTicket ? 'show' : 'hide'}`}>
             <div className='ticketBooking__container'>
@@ -41,7 +44,7 @@ const TicketBooking = ({ movieData, showTicket, setShowTicket }) => {
                     <IoMdClose onClick={() => { setShowTicket(false) }} />
 
                 </div>
-                <form onSubmit={handleSubmit} noValidate className='ticketBooking__form'>
+                <form onSubmit={handleSubmit} className='ticketBooking__form'>
                     <h1 className='ticketBooking__form-name'>{movieData?.name}</h1>
                     <div className='ticketBooking__form-content'>
                         <div className='ticketBooking__inputContainer'>
@@ -79,14 +82,14 @@ const TicketBooking = ({ movieData, showTicket, setShowTicket }) => {
                         </div>
                         <div className='ticketBooking__inputContainer email'>
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" className='input' required value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })}/>
+                            <input type="email" id="email" className='input' required value={data.email} onChange={(e) => setData({ ...data, email: e.target.value })} />
                         </div>
                         <div className='ticketBooking__inputContainer '>
                             <label htmlFor="number">Number</label>
                             <input type="text" id="phone-number" className='input' required value={data.number} onChange={(e) => setData({ ...data, number: e.target.value })} />
                         </div>
 
-                        <button type='submit' className='ticketBooking__form-btn' onClick={() => setShowTicket(false)}>Buy Ticket</button>
+                        <button type='submit' className='ticketBooking__form-btn'>Buy Ticket</button>
                     </div>
                 </form>
             </div>

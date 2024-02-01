@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './MyTickets.css'
-import BookedTicket from '../../components/BookedTicket/BookedTicket';
+import { BookedTicket } from '../../components';
 
 const MyTickets = () => {
     const [data, setData] = useState([]);
@@ -16,9 +16,9 @@ const MyTickets = () => {
             {data.length != 0
                 ? (<div className='myTickets__container'>
                     {
-                        data.map((item) => (
+                        data.map((item, i) => (
                             <BookedTicket
-                            key={item.id}
+                            key={i}
                                 id={item.id}
                                 cinema={item.cinema}
                                 date={item.date}

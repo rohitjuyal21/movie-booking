@@ -3,6 +3,7 @@
     overflow: hidden;
     background-color: var(--grey);
 }
+
 .bookedTickets__imgContainer {
     width: 100%;
 }
